@@ -5,6 +5,8 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnterDriver", "UnterDriver\UnterDriver.csproj", "{ED186778-476B-44A3-95B9-344EC0A83F0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnterDriverBenchmark", "UnterDriverBenchmark\UnterDriverBenchmark.csproj", "{3E024448-F4C4-4E42-85D2-06C693CD5B5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +20,9 @@ Global
 		{ED186778-476B-44A3-95B9-344EC0A83F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED186778-476B-44A3-95B9-344EC0A83F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED186778-476B-44A3-95B9-344EC0A83F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E024448-F4C4-4E42-85D2-06C693CD5B5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E024448-F4C4-4E42-85D2-06C693CD5B5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E024448-F4C4-4E42-85D2-06C693CD5B5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E024448-F4C4-4E42-85D2-06C693CD5B5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
