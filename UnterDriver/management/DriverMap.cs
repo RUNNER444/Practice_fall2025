@@ -8,18 +8,20 @@ public class DriverMap
     private int width;
     private int height;
 
-    private Coordinate currentOrder;
-
     private List <Driver> drivers = new();
 
     private Dictionary <Coordinate, Driver> driverLocation = new();
 
-    public DriverMap (int x, int y, Coordinate order)
+    public DriverMap (int x, int y)
     {
         width = x;
         height = y;
-        currentOrder = order;
     }
+
+
+    // ====================================
+    //             MAP FUNCTIONS
+    // ====================================
 
     public void AddDriver(Driver driver)
     {
@@ -48,7 +50,7 @@ public class DriverMap
         return false;
     }
 
-    public void DisplayMap ()
+    public void DisplayMap (Coordinate currentOrder)
     {
         Coordinate locationChecker = new Coordinate();
         for (int j = 0; j < height; j++)
@@ -72,6 +74,7 @@ public class DriverMap
             Console.Write("|\n");
         }
     }
+
 
     // ====================================
     //              ALGORITHMS
@@ -102,12 +105,13 @@ public class DriverMap
         
         foreach (Driver driver in drivers)
         {
-            int distance = driver.Location.Delta(currentOrder);
+            int distance = driver.DistanceToOrder;
+
             if (closestQueue.Count < 5)
             {
                 closestQueue.Enqueue(driver, -distance);
             }
-            else if (-distance > -closestQueue.Peek().Location.Delta(currentOrder))
+            else if (-distance > -closestQueue.Peek().DistanceToOrder)
             {
                 closestQueue.Dequeue();
                 closestQueue.Enqueue(driver, -distance);
@@ -124,13 +128,13 @@ public class DriverMap
         return closestDrivers;
     }
 
-    public List <Driver> Radar()
+    public List <Driver> Radar(Coordinate currentOrder)
     {
         List <Driver> scannedDrivers = new();
 
         int up = currentOrder.Y - 1, down = up + 2, left = currentOrder.X - 1, right = left + 2;
 
-        for (int radius = 1; radius < Math.Max(
+        for (int radius = 1; radius <= Math.Max(
             Math.Max(width - currentOrder.X, height - currentOrder.Y),
             Math.Max(currentOrder.X, currentOrder.Y)); radius++)
         {
